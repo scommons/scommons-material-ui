@@ -3,6 +3,8 @@ package definitions
 import sbt._
 import scoverage.ScoverageKeys.coverageExcludedPackages
 
+import scalajsbundler.sbtplugin.ScalaJSBundlerPlugin.autoImport._
+
 object MaterialUiCodeGen extends NodeJsModule {
 
   override val id = "scommons-material-ui-codegen"
@@ -11,7 +13,11 @@ object MaterialUiCodeGen extends NodeJsModule {
 
   override def definition: Project = super.definition
     .settings(
-      coverageExcludedPackages := "scommons.materialui.codegen.raw"
+      coverageExcludedPackages := "scommons.doctrine.raw",
+
+      npmDependencies in Compile ++= Seq(
+        "doctrine" -> "^3.0.0"
+      )
     )
 
   override val internalDependencies: Seq[ClasspathDep[ProjectReference]] = Nil
