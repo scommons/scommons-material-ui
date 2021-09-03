@@ -1,8 +1,8 @@
 package definitions
 
+import sbt.Keys._
 import sbt._
 import scoverage.ScoverageKeys.coverageExcludedPackages
-
 import scalajsbundler.sbtplugin.ScalaJSBundlerPlugin.autoImport._
 
 object MaterialUiCodeGen extends NodeJsModule {
@@ -13,6 +13,11 @@ object MaterialUiCodeGen extends NodeJsModule {
 
   override def definition: Project = super.definition
     .settings(
+      skip in publish := true,
+      publish := ((): Unit),
+      publishLocal := ((): Unit),
+      publishM2 := ((): Unit),
+
       coverageExcludedPackages :=
         "scommons.doctrine.raw" +
           ";scommons.reactdocgen.raw",

@@ -15,7 +15,13 @@ lazy val `scommons-material-ui` = (project in file("."))
     ideExcludedDirectories += baseDirectory.value / "docs" / "_site"
   )
   .aggregate(
-    `scommons-material-ui-codegen`
+    `scommons-material-ui-codegen`,
+    `scommons-material-ui-core`,
+    `scommons-material-ui-test`,
+    `scommons-material-ui-showcase`
   )
 
 lazy val `scommons-material-ui-codegen` = MaterialUiCodeGen.definition
+lazy val `scommons-material-ui-core` = MaterialUiCore.definition
+lazy val `scommons-material-ui-test` = MaterialUiTest.definition
+lazy val `scommons-material-ui-showcase` = MaterialUiShowcase.definition
