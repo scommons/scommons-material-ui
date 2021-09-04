@@ -1,5 +1,6 @@
 package definitions
 
+import common.Libs
 import sbt.Keys._
 import sbt._
 import scalajsbundler.sbtplugin.ScalaJSBundlerPlugin.autoImport._
@@ -36,4 +37,16 @@ object MaterialUiCore extends ScalaJsModule {
     )
 
   override val internalDependencies: Seq[ClasspathDep[ProjectReference]] = Nil
+
+  override def superRepoProjectsDependencies: Seq[(String, String, Option[String])] = {
+    super.superRepoProjectsDependencies ++ Seq(
+      ("scommons-react", "scommons-react-dom", None)
+    )
+  }
+
+  override def runtimeDependencies: Def.Initialize[Seq[ModuleID]] = Def.setting {
+    super.runtimeDependencies.value ++ Seq(
+      Libs.scommonsReactDom.value
+    )
+  }
 }
