@@ -14,7 +14,7 @@ class ContainedButtonsSpec extends TestSpec with TestRendererUtils {
     
     //then
     assertNativeComponent(result,
-      <.div()(
+      <.div(^.className := "classes.root")(
         <.Button(^.variant := "contained")("Default"),
         <.Button(^.variant := "contained", ^.color := "primary")(
           "Primary"
