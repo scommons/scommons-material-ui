@@ -1,9 +1,10 @@
 
 const nodeExternals = require('webpack-node-externals')
-const merge = require("webpack-merge")
-const commonConfig = require("./scommons.webpack.config.js")
 
-module.exports = merge(commonConfig, {
+module.exports = {
+//  stats: {
+//    children: false // disable child plugin/loader logging
+//  },
 
   output: {
     libraryTarget: 'commonjs'
@@ -14,5 +15,12 @@ module.exports = merge(commonConfig, {
     __filename: false,
     __dirname: false
   },
-  externals: [nodeExternals()] // in order to ignore all modules in node_modules folder
-})
+  externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
+  
+  resolve: {
+    modules: [
+      './node_modules',
+      '.'
+    ]
+  }
+}
