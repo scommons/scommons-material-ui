@@ -1,7 +1,7 @@
 package scommons.materialui.showcase.button
 
-import scommons.materialui.Icons.{ArrowDownward => ArrowDownwardIcon, Delete => DeleteIcon}
 import scommons.materialui._
+import scommons.materialui.icons.{ArrowDownward => ArrowDownwardIcon, Delete => DeleteIcon}
 import scommons.materialui.styles._
 import scommons.react._
 

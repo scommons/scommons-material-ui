@@ -1,11 +1,11 @@
 package scommons.materialui.showcase.button
 
-import scommons.materialui.Icons.{
+import scommons.materialui._
+import scommons.materialui.icons.{
   AddShoppingCart => AddShoppingCartIcon,
   Alarm => AlarmIcon,
   Delete => DeleteIcon
 }
-import scommons.materialui._
 import scommons.materialui.styles._
 import scommons.react._
 

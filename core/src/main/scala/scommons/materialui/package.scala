@@ -7,7 +7,8 @@ import scommons.react.ReactClass
 
 package object materialui {
   
-  lazy val Icons: raw.IconsNative = raw.IconsNative
+  lazy val colors: raw.ColorsNative = raw.ColorsNative
+  lazy val icons: raw.IconsNative = raw.IconsNative
 
   implicit class MaterialUiVirtualDOMElements(elements: VirtualDOMElements) {
     lazy val Button: ReactClassElementSpec = elements(raw.MaterialUiNative.Button)

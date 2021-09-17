@@ -1,7 +1,7 @@
 package scommons.materialui.showcase.button
 
-import scommons.materialui.Icons.PhotoCamera
 import scommons.materialui._
+import scommons.materialui.icons.PhotoCamera
 import scommons.materialui.styles._
 import scommons.react._
 

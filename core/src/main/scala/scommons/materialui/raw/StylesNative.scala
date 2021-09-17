@@ -1,5 +1,7 @@
 package scommons.materialui.raw
 
+import scommons.react.ReactClass
+
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
@@ -7,6 +9,14 @@ import scala.scalajs.js.|
 @js.native
 @JSImport("@material-ui/core/styles", JSImport.Default)
 object StylesNative extends js.Object {
+
+  val ThemeProvider: ReactClass = js.native
+
+  def createTheme(options: js.Object, args: js.Object*): ThemeNative = js.native
+  
+  def withStyles(styles: Styles | js.Function1[ThemeNative with js.Dynamic, Styles],
+                 options: js.UndefOr[WithStylesOptions] = js.undefined
+                ): js.Function1[ReactClass, ReactClass] = js.native
   
   def createStyles(styles: Styles): Styles = js.native
   
@@ -26,3 +36,11 @@ trait ThemeNative extends Theme {
 trait Theme extends js.Object
 
 trait Styles extends js.Object
+
+trait WithStylesOptions extends js.Object {
+  
+  val defaultTheme: js.UndefOr[Theme] = js.undefined
+  val withTheme: js.UndefOr[Boolean] = js.undefined
+  val name: js.UndefOr[String] = js.undefined
+  val flip: js.UndefOr[Boolean] = js.undefined
+}
