@@ -3,6 +3,8 @@ name: CI
 on:
   push:
     branches: [ master ]
+    tags:
+      - '*'
   pull_request:
     branches: [ master ]
 
@@ -35,22 +37,14 @@ jobs:
           ~/.ivy2/cache
           ~/.coursier/cache/v1
           ~/.cache/coursier/v1
-        key: ${{ runner.os }}-sbt-cache-v2-${{ hashFiles('**/*.sbt') }}-${{ hashFiles('project/**/*.scala') }}
-
-    - name: Cache Node
-      uses: actions/cache@v2
-      with:
-        path: |
-          ~/.npm
-          ~/.nvm
-        key: ${{ runner.os }}-node-cache-v2-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-cache-v2-
+        key: ${{ runner.os }}-sbt-cache-v2-${{ hashFiles('**/*.sbt', 'project/**/*.scala') }}
 
     - name: Cache node_modules
       uses: actions/cache@v2
       with:
         path: |
+          ~/.npm
+          ~/.nvm
           ~/work/scommons-material-ui/scommons-material-ui/codegen/target/scala-2.13/scalajs-bundler/test/node_modules
           ~/work/scommons-material-ui/scommons-material-ui/codegen/target/scala-2.13/scalajs-bundler/test/package-lock.json
           ~/work/scommons-material-ui/scommons-material-ui/core/target/scala-2.13/scalajs-bundler/test/node_modules
@@ -59,7 +53,7 @@ jobs:
           ~/work/scommons-material-ui/scommons-material-ui/test/target/scala-2.13/scalajs-bundler/test/package-lock.json
           ~/work/scommons-material-ui/scommons-material-ui/showcase/target/scala-2.13/scalajs-bundler/test/node_modules
           ~/work/scommons-material-ui/scommons-material-ui/showcase/target/scala-2.13/scalajs-bundler/test/package-lock.json
-        key: ${{ runner.os }}-node_modules-cache-v2-${{ hashFiles('project/**/*.scala') }}
+        key: ${{ runner.os }}-node_modules-cache-v2-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node_modules-cache-v2-
 
@@ -67,3 +61,21 @@ jobs:
       run: sbt coverage test && sbt coverageAggregate coveralls
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+
+    - name: Extract Tag Name
+      run: echo "TAG_NAME=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV && echo "TAG_NAME=$TAG_NAME"
+      if: startsWith(github.ref, 'refs/tags')
+
+    - name: Publish SNAPSHOT
+      run: sbt clean publish
+      if: ${{ !github.event.pull_request && env.TAG_NAME == '' }}
+      env:
+        SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+        SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+
+    - name: Publish RELEASE
+      run: echo "TAG_NAME=$TAG_NAME"
+      if: env.TAG_NAME != ''
+      env:
+        SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+        SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
