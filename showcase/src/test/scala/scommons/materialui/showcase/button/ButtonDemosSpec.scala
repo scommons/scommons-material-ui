@@ -15,6 +15,7 @@ class ButtonDemosSpec extends TestSpec with TestRendererUtils {
   ButtonDemos.iconLabelButtonsComp = () => "IconLabelButtons".asInstanceOf[ReactClass]
   ButtonDemos.iconButtonsComp = () => "IconButtons".asInstanceOf[ReactClass]
   ButtonDemos.customizedButtonsComp = () => "CustomizedButtons".asInstanceOf[ReactClass]
+  ButtonDemos.buttonBasesComp = () => "ButtonBases".asInstanceOf[ReactClass]
 
   it should "render component" in {
     //given
@@ -60,7 +61,11 @@ class ButtonDemosSpec extends TestSpec with TestRendererUtils {
 
         <.h3()("Customized Buttons"),
         <.hr()(),
-        <(customizedButtonsComp())()()
+        <(customizedButtonsComp())()(),
+
+        <.h3()("Complex Buttons"),
+        <.hr()(),
+        <(buttonBasesComp())()()
       )
     )
   }

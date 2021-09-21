@@ -1,9 +1,13 @@
 package scommons.materialui.showcase.button
 
 import scommons.materialui._
+import scommons.materialui.styles._
+import scommons.materialui.test.MuiBaseTestSpec
 import scommons.react.test._
 
-class OutlinedButtonsSpec extends TestSpec with TestRendererUtils {
+class OutlinedButtonsSpec extends TestSpec with MuiBaseTestSpec {
+
+  private lazy val classes = testClasses(OutlinedButtons.useStyles)
 
   it should "render component" in {
     //given
@@ -14,7 +18,7 @@ class OutlinedButtonsSpec extends TestSpec with TestRendererUtils {
     
     //then
     assertNativeComponent(result,
-      <.div(^.className := "classes.root")(
+      <.div(^.className := styleOf(classes.root))(
         <.Button(^.variant := "outlined")("Default"),
         <.Button(^.variant := "outlined", ^.color := "primary")(
           "Primary"

@@ -17,7 +17,6 @@ object Button {
     lazy val endIcon = ReactElementAttributeSpec("endIcon")
     lazy val fullWidth = BooleanAttributeSpec("fullWidth")
     lazy val startIcon = ReactElementAttributeSpec("startIcon")
-    lazy val variant = StringAttributeSpec("variant")
   }
 
   object ButtonAttributes {

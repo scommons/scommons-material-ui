@@ -12,7 +12,7 @@ import scommons.react._
 
 object IconLabelButtons extends FunctionComponent[Unit] {
   
-  private val useStyles = makeStyles(theme => {
+  private[button] val useStyles = makeStyles(theme => {
     val s = new Styles {
       val button = new Styles {
         val margin = theme.spacing(1)
@@ -61,7 +61,7 @@ object IconLabelButtons extends FunctionComponent[Unit] {
       <.Button(
         ^.variant := "contained",
         ^.color := "primary",
-        ^.muSize := "small",
+        ^.muiSize := "small",
         ^.className := styleOf(classes.button),
         ^.startIcon := <(SaveIcon)()()
       )(
@@ -70,7 +70,7 @@ object IconLabelButtons extends FunctionComponent[Unit] {
       <.Button(
         ^.variant := "contained",
         ^.color := "primary",
-        ^.muSize := "large",
+        ^.muiSize := "large",
         ^.className := styleOf(classes.button),
         ^.startIcon := <(SaveIcon)()()
       )(

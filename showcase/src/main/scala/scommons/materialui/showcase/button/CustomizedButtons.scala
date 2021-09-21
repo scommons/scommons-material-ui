@@ -63,7 +63,7 @@ object CustomizedButtons extends FunctionComponent[Unit] {
     s
   })(<.Button.reactClass)
   
-  private val useStyles = makeStyles(theme => {
+  private[button] val useStyles = makeStyles(theme => {
     val s = new Styles {
       val margin = new Styles {
         val margin = theme.spacing(1)
@@ -83,6 +83,10 @@ object CustomizedButtons extends FunctionComponent[Unit] {
 
   private[button] lazy val defaultTheme = createTheme(new js.Object)
   
+  private[button] val nativeToTheme: js.Function1[NativeTheme, Theme] = { _ =>
+    theme
+  }
+  
   protected def render(compProps: Props): ReactElement = {
     val classes = useStyles()
 
@@ -90,7 +94,7 @@ object CustomizedButtons extends FunctionComponent[Unit] {
       <(ColorButton)(^.variant := "contained", ^.color := "primary", ^.className := styleOf(classes.margin))(
         "Custom CSS"
       ),
-      <.ThemeProvider(^.theme := {_: NativeTheme => theme})(
+      <.ThemeProvider(^.theme := nativeToTheme)(
         <.Button(^.variant := "contained", ^.color := "primary", ^.className := styleOf(classes.margin))(
           "Theme Provider"
         )

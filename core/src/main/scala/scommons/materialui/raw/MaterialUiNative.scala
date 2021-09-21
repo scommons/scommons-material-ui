@@ -10,6 +10,8 @@ import scala.scalajs.js.annotation.JSImport
 object MaterialUiNative extends js.Object {
   
   val Button: ReactClass = js.native
-  val IconButton: ReactClass = js.native
+  val ButtonBase: ReactClass = js.native
   val Icon: ReactClass = js.native
+  val IconButton: ReactClass = js.native
+  val Typography: ReactClass = js.native
 }

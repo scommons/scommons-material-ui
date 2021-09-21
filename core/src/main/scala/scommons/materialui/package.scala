@@ -12,8 +12,10 @@ package object materialui {
 
   implicit class MaterialUiVirtualDOMElements(elements: VirtualDOMElements) {
     lazy val Button: ReactClassElementSpec = elements(raw.MaterialUiNative.Button)
+    lazy val ButtonBase: ReactClassElementSpec = elements(raw.MaterialUiNative.ButtonBase)
     lazy val Icon: ReactClassElementSpec = elements(raw.MaterialUiNative.Icon)
     lazy val IconButton: ReactClassElementSpec = elements(raw.MaterialUiNative.IconButton)
+    lazy val Typography: ReactClassElementSpec = elements(raw.MaterialUiNative.Typography)
   }
 
   object MaterialUiVirtualDOMAttributes {
@@ -27,13 +29,15 @@ package object materialui {
   }
 
   implicit class MaterialUiVirtualDOMAttributes(attributes: VirtualDOMAttributes)
-    extends Button.ButtonAttributes {
+    extends Button.ButtonAttributes
+      with ButtonBase.ButtonBaseAttributes {
     
     import MaterialUiVirtualDOMAttributes._
 
     lazy val color = StringAttributeSpec("color")
     lazy val component = ComponentAttributeSpec("component")
     lazy val fontSize = StringAttributeSpec("fontSize")
-    lazy val muSize = StringAttributeSpec("size")
+    lazy val muiSize = StringAttributeSpec("size")
+    lazy val variant = StringAttributeSpec("variant")
   }
 }

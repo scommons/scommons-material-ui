@@ -11,7 +11,7 @@ import scommons.react._
 
 object IconButtons extends FunctionComponent[Unit] {
   
-  private val useStyles = makeStyles(theme => {
+  private[button] val useStyles = makeStyles(theme => {
     val s = new Styles {
       val root = new Styles {
         val `& > *` = new Styles {

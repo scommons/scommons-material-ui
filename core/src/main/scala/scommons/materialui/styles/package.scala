@@ -15,6 +15,7 @@ package object styles {
   type WithStylesOptions = raw.WithStylesOptions
 
   implicit class MaterialUiStylesVirtualDOMElements(elements: VirtualDOMElements) {
+    lazy val MuiThemeProvider: ReactClassElementSpec = elements(raw.StylesNative.MuiThemeProvider)
     lazy val ThemeProvider: ReactClassElementSpec = elements(raw.StylesNative.ThemeProvider)
   }
 

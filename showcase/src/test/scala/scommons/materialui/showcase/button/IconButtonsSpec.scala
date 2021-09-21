@@ -1,14 +1,14 @@
 package scommons.materialui.showcase.button
 
 import scommons.materialui._
-import scommons.materialui.icons.{
-  AddShoppingCart => AddShoppingCartIcon,
-  Alarm => AlarmIcon,
-  Delete => DeleteIcon
-}
+import scommons.materialui.icons.{AddShoppingCart => AddShoppingCartIcon, Alarm => AlarmIcon, Delete => DeleteIcon}
+import scommons.materialui.styles._
+import scommons.materialui.test.MuiBaseTestSpec
 import scommons.react.test._
 
-class IconButtonsSpec extends TestSpec with TestRendererUtils {
+class IconButtonsSpec extends TestSpec with MuiBaseTestSpec {
+
+  private lazy val classes = testClasses(IconButtons.useStyles)
 
   it should "render component" in {
     //given
@@ -19,7 +19,7 @@ class IconButtonsSpec extends TestSpec with TestRendererUtils {
     
     //then
     assertNativeComponent(result,
-      <.div(^.className := "classes.root")(
+      <.div(^.className := styleOf(classes.root))(
         <.IconButton(^("aria-label") := "delete")(
           <(DeleteIcon)()()
         ),

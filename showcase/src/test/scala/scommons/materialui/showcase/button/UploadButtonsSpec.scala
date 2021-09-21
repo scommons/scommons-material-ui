@@ -2,9 +2,13 @@ package scommons.materialui.showcase.button
 
 import scommons.materialui._
 import scommons.materialui.icons.PhotoCamera
+import scommons.materialui.styles._
+import scommons.materialui.test.MuiBaseTestSpec
 import scommons.react.test._
 
-class UploadButtonsSpec extends TestSpec with TestRendererUtils {
+class UploadButtonsSpec extends TestSpec with MuiBaseTestSpec {
+
+  private lazy val classes = testClasses(UploadButtons.useStyles)
 
   it should "render component" in {
     //given
@@ -15,10 +19,10 @@ class UploadButtonsSpec extends TestSpec with TestRendererUtils {
     
     //then
     assertNativeComponent(result,
-      <.div(^.className := "classes.root")(
+      <.div(^.className := styleOf(classes.root))(
         <.input(
           ^.accept := "image/*",
-          ^.className := "classes.input",
+          ^.className := styleOf(classes.input),
           ^.id := "contained-button-file",
           ^.multiple := true,
           ^.`type` := "file"
@@ -29,7 +33,7 @@ class UploadButtonsSpec extends TestSpec with TestRendererUtils {
           )
         ),
 
-        <.input(^.accept := "image/*", ^.className := "classes.input", ^.id := "icon-button-file", ^.`type` := "file")(),
+        <.input(^.accept := "image/*", ^.className := styleOf(classes.input), ^.id := "icon-button-file", ^.`type` := "file")(),
         <.label(^.htmlFor := "icon-button-file")(
           <.IconButton(^.color := "primary", ^("aria-label") := "upload picture", ^.component := "span")(
             <(PhotoCamera)()()

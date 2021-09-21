@@ -7,7 +7,7 @@ import scommons.react._
 
 object ButtonSizes extends FunctionComponent[Unit] {
   
-  private val useStyles = makeStyles(theme => {
+  private[button] val useStyles = makeStyles(theme => {
     val s = new Styles {
       val margin = new Styles {
         val margin = theme.spacing(1)
@@ -21,40 +21,40 @@ object ButtonSizes extends FunctionComponent[Unit] {
     
     <.div()(
       <.div()(
-        <.Button(^.muSize := "small", ^.className := styleOf(classes.margin))(
+        <.Button(^.muiSize := "small", ^.className := styleOf(classes.margin))(
           "Small"
         ),
-        <.Button(^.muSize := "medium", ^.className := styleOf(classes.margin))(
+        <.Button(^.muiSize := "medium", ^.className := styleOf(classes.margin))(
           "Medium"
         ),
-        <.Button(^.muSize := "large", ^.className := styleOf(classes.margin))(
+        <.Button(^.muiSize := "large", ^.className := styleOf(classes.margin))(
           "Large"
         )
       ),
       <.div()(
-        <.Button(^.variant := "outlined", ^.muSize := "small", ^.color := "primary", ^.className := styleOf(classes.margin))(
+        <.Button(^.variant := "outlined", ^.muiSize := "small", ^.color := "primary", ^.className := styleOf(classes.margin))(
           "Small"
         ),
-        <.Button(^.variant := "outlined", ^.muSize := "medium", ^.color := "primary", ^.className := styleOf(classes.margin))(
+        <.Button(^.variant := "outlined", ^.muiSize := "medium", ^.color := "primary", ^.className := styleOf(classes.margin))(
           "Medium"
         ),
-        <.Button(^.variant := "outlined", ^.muSize := "large", ^.color := "primary", ^.className := styleOf(classes.margin))(
+        <.Button(^.variant := "outlined", ^.muiSize := "large", ^.color := "primary", ^.className := styleOf(classes.margin))(
           "Large"
         )
       ),
       <.div()(
-        <.Button(^.variant := "contained", ^.muSize := "small", ^.color := "primary", ^.className := styleOf(classes.margin))(
+        <.Button(^.variant := "contained", ^.muiSize := "small", ^.color := "primary", ^.className := styleOf(classes.margin))(
           "Small"
         ),
-        <.Button(^.variant := "contained", ^.muSize := "medium", ^.color := "primary", ^.className := styleOf(classes.margin))(
+        <.Button(^.variant := "contained", ^.muiSize := "medium", ^.color := "primary", ^.className := styleOf(classes.margin))(
           "Medium"
         ),
-        <.Button(^.variant := "contained", ^.muSize := "large", ^.color := "primary", ^.className := styleOf(classes.margin))(
+        <.Button(^.variant := "contained", ^.muiSize := "large", ^.color := "primary", ^.className := styleOf(classes.margin))(
           "Large"
         )
       ),
       <.div()(
-        <.IconButton(^("aria-label") := "delete", ^.className := styleOf(classes.margin), ^.muSize := "small")(
+        <.IconButton(^("aria-label") := "delete", ^.className := styleOf(classes.margin), ^.muiSize := "small")(
           <(ArrowDownwardIcon)(^.fontSize := "inherit")()
         ),
         <.IconButton(^("aria-label") := "delete", ^.className := styleOf(classes.margin))(

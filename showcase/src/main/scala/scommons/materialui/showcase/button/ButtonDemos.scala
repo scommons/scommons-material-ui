@@ -16,6 +16,7 @@ object ButtonDemos extends FunctionComponent[Unit] {
   private[button] var iconLabelButtonsComp: UiComponent[Unit] = IconLabelButtons
   private[button] var iconButtonsComp: UiComponent[Unit] = IconButtons
   private[button] var customizedButtonsComp: UiComponent[Unit] = CustomizedButtons
+  private[button] var buttonBasesComp: UiComponent[Unit] = ButtonBases
 
   protected def render(compProps: Props): ReactElement = {
     <.div()(
@@ -53,7 +54,11 @@ object ButtonDemos extends FunctionComponent[Unit] {
 
       <.h3()("Customized Buttons"),
       <.hr()(),
-      <(customizedButtonsComp())()()
+      <(customizedButtonsComp())()(),
+
+      <.h3()("Complex Buttons"),
+      <.hr()(),
+      <(buttonBasesComp())()()
     )
   }
 }

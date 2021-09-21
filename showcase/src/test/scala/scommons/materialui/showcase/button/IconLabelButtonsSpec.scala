@@ -7,10 +7,14 @@ import scommons.materialui.icons.{
   KeyboardVoice => KeyboardVoiceIcon,
   Save => SaveIcon
 }
+import scommons.materialui.styles._
+import scommons.materialui.test.MuiBaseTestSpec
 import scommons.react.ReactElement
 import scommons.react.test._
 
-class IconLabelButtonsSpec extends TestSpec with TestRendererUtils {
+class IconLabelButtonsSpec extends TestSpec with MuiBaseTestSpec {
+
+  private lazy val classes = testClasses(IconLabelButtons.useStyles)
 
   it should "render component" in {
     //given
@@ -27,7 +31,7 @@ class IconLabelButtonsSpec extends TestSpec with TestRendererUtils {
         <.Button(
           ^.variant := "contained",
           ^.color := "secondary",
-          ^.className := "classes.button"
+          ^.className := styleOf(classes.button)
         )(
           "Delete"
         )
@@ -39,7 +43,7 @@ class IconLabelButtonsSpec extends TestSpec with TestRendererUtils {
         <.Button(
           ^.variant := "contained",
           ^.color := "primary",
-          ^.className := "classes.button"
+          ^.className := styleOf(classes.button)
         )(
           "Send"
         )
@@ -51,7 +55,7 @@ class IconLabelButtonsSpec extends TestSpec with TestRendererUtils {
         <.Button(
           ^.variant := "contained",
           ^.color := "default",
-          ^.className := "classes.button"
+          ^.className := styleOf(classes.button)
         )(
           "Upload"
         )
@@ -64,7 +68,7 @@ class IconLabelButtonsSpec extends TestSpec with TestRendererUtils {
           ^.variant := "contained",
           ^.disabled := true,
           ^.color := "secondary",
-          ^.className := "classes.button"
+          ^.className := styleOf(classes.button)
         )(
           "Talk"
         )
@@ -76,8 +80,8 @@ class IconLabelButtonsSpec extends TestSpec with TestRendererUtils {
         <.Button(
           ^.variant := "contained",
           ^.color := "primary",
-          ^.muSize := "small",
-          ^.className := "classes.button"
+          ^.muiSize := "small",
+          ^.className := styleOf(classes.button)
         )(
           "Save"
         )
@@ -89,8 +93,8 @@ class IconLabelButtonsSpec extends TestSpec with TestRendererUtils {
         <.Button(
           ^.variant := "contained",
           ^.color := "primary",
-          ^.muSize := "large",
-          ^.className := "classes.button"
+          ^.muiSize := "large",
+          ^.className := styleOf(classes.button)
         )(
           "Save"
         )

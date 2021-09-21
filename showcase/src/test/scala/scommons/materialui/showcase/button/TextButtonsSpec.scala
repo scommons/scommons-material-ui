@@ -1,9 +1,13 @@
 package scommons.materialui.showcase.button
 
 import scommons.materialui._
+import scommons.materialui.styles._
+import scommons.materialui.test.MuiBaseTestSpec
 import scommons.react.test._
 
-class TextButtonsSpec extends TestSpec with TestRendererUtils {
+class TextButtonsSpec extends TestSpec with MuiBaseTestSpec {
+
+  private lazy val classes = testClasses(TextButtons.useStyles)
 
   it should "render component" in {
     //given
@@ -14,7 +18,7 @@ class TextButtonsSpec extends TestSpec with TestRendererUtils {
     
     //then
     assertNativeComponent(result,
-      <.div(^.className := "classes.root")(
+      <.div(^.className := styleOf(classes.root))(
         <.Button()("Default"),
         <.Button(^.color := "primary")("Primary"),
         <.Button(^.color := "secondary")("Secondary"),

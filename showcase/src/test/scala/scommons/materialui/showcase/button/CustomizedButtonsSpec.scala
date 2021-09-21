@@ -1,11 +1,14 @@
 package scommons.materialui.showcase.button
 
-import scommons.materialui.showcase.button.CustomizedButtons._
 import scommons.materialui._
+import scommons.materialui.showcase.button.CustomizedButtons._
 import scommons.materialui.styles._
+import scommons.materialui.test.MuiBaseTestSpec
 import scommons.react.test._
 
-class CustomizedButtonsSpec extends TestSpec with TestRendererUtils {
+class CustomizedButtonsSpec extends TestSpec with MuiBaseTestSpec {
+
+  private lazy val classes = testClasses(useStyles)
 
   it should "return theme from ThemeProvider.theme prop func" in {
     //given
@@ -31,15 +34,15 @@ class CustomizedButtonsSpec extends TestSpec with TestRendererUtils {
     //then
     assertNativeComponent(result,
       <.ThemeProvider(^.theme := defaultTheme)(
-        <(ColorButton)(^.variant := "contained", ^.color := "primary", ^.className := "classes.margin")(
+        <(ColorButton)(^.variant := "contained", ^.color := "primary", ^.className := styleOf(classes.margin))(
           "Custom CSS"
         ),
-        <.ThemeProvider()(
-          <.Button(^.variant := "contained", ^.color := "primary", ^.className := "classes.margin")(
+        <.ThemeProvider(^.theme := nativeToTheme)(
+          <.Button(^.variant := "contained", ^.color := "primary", ^.className := styleOf(classes.margin))(
             "Theme Provider"
           )
         ),
-        <(BootstrapButton)(^.variant := "contained", ^.color := "primary", ^.disableRipple := true, ^.className := "classes.margin")(
+        <(BootstrapButton)(^.variant := "contained", ^.color := "primary", ^.disableRipple := true, ^.className := styleOf(classes.margin))(
           "Bootstrap"
         )
       )

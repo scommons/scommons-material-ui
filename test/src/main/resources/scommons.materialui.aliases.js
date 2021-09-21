@@ -6,6 +6,7 @@ const moduleAlias = require('module-alias')
 moduleAlias.addAliases({
   '@material-ui/core': __dirname + '/sc-material-ui-mocks.js',
   '@material-ui/core/colors': '@material-ui/core/colors',
+  '@material-ui/core/styles-orig': '@material-ui/core/styles',
   '@material-ui/core/styles': __dirname + '/sc-material-ui-styles-mocks.js',
   '@material-ui/icons': __dirname + '/sc-material-ui-icons-mocks.js'
 })

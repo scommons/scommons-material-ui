@@ -10,6 +10,7 @@ import scala.scalajs.js.|
 @JSImport("@material-ui/core/styles", JSImport.Default)
 object StylesNative extends js.Object {
 
+  val MuiThemeProvider: ReactClass = js.native
   val ThemeProvider: ReactClass = js.native
 
   def createTheme(options: js.Object, args: js.Object*): ThemeNative = js.native
