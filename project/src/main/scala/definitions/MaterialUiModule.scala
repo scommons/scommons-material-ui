@@ -23,6 +23,7 @@ object MaterialUiModule {
     //
     // publish/release related settings:
     //
+    sonatypeProfileName := "org.scommons",
     publishMavenStyle := true,
     publishArtifact in Test := false,
     publishTo := sonatypePublishToBundle.value,
