@@ -8,8 +8,11 @@ module.exports = {
   MuiThemeProvider: 'MuiThemeProvider',
   ThemeProvider: 'ThemeProvider',
 
-  withStyles: function () {
-    styles.withStyles(...arguments)
+  withStyles: function (stylesArg) {
+    if (typeof stylesArg == 'function') {
+      const theme = styles.createTheme({})
+      stylesArg(theme)
+    }
     
     return comp => {
       return "WithStylesMock-" + comp + "-" + (withStylesCompCounter++);
