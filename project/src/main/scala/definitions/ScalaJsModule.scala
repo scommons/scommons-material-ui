@@ -2,14 +2,8 @@ package definitions
 
 import common.{Libs, TestLibs}
 import sbt._
-import scommons.sbtplugin.project.CommonClientModule
 
 trait ScalaJsModule extends NodeJsModule {
-
-  override def definition: Project = {
-    super.definition
-      .settings(CommonClientModule.settings: _*)
-  }
 
   override def superRepoProjectsDependencies: Seq[(String, String, Option[String])] = {
     super.superRepoProjectsDependencies ++ Seq(
