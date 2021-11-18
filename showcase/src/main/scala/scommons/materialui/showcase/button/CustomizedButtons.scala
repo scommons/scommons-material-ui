@@ -99,7 +99,7 @@ object CustomizedButtons extends FunctionComponent[Unit] {
           "Theme Provider"
         )
       ),
-      <(BootstrapButton)(^.variant := "contained", ^.color := "primary", ^.disableRipple := true, ^.className := styleOf(classes.margin))(
+      <(BootstrapButton)(^.variant := "contained", ^.color := "primary", ^.disableRipple(), ^.className := styleOf(classes.margin))(
         "Bootstrap"
       )
     )

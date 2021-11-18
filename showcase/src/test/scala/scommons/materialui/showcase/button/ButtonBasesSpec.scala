@@ -22,7 +22,7 @@ class ButtonBasesSpec extends TestSpec with MuiBaseTestSpec {
       <.div(^.className := styleOf(classes.root))(
         images.map { case (imageUrl, imageTitle, imageWidth) =>
           <.ButtonBase(
-            ^.focusRipple := true,
+            ^.focusRipple(),
             ^.key := imageTitle,
             ^.className := styleOf(classes.image),
             ^.focusVisibleClassName := styleOf(classes.focusVisible),

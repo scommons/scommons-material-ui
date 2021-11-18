@@ -22,7 +22,7 @@ class TextButtonsSpec extends TestSpec with MuiBaseTestSpec {
         <.Button()("Default"),
         <.Button(^.color := "primary")("Primary"),
         <.Button(^.color := "secondary")("Secondary"),
-        <.Button(^.disabled := true)("Disabled"),
+        <.Button(^.disabled())("Disabled"),
         <.Button(^.href := "#text-buttons", ^.color := "primary")(
           "Link"
         )

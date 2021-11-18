@@ -26,7 +26,7 @@ class OutlinedButtonsSpec extends TestSpec with MuiBaseTestSpec {
         <.Button(^.variant := "outlined", ^.color := "secondary")(
           "Secondary"
         ),
-        <.Button(^.variant := "outlined", ^.disabled := true)(
+        <.Button(^.variant := "outlined", ^.disabled())(
           "Disabled"
         ),
         <.Button(^.variant := "outlined", ^.color := "primary", ^.href := "#outlined-buttons")(

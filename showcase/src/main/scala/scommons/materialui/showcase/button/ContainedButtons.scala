@@ -28,7 +28,7 @@ object ContainedButtons extends FunctionComponent[Unit] {
       <.Button(^.variant := "contained", ^.color := "secondary")(
         "Secondary"
       ),
-      <.Button(^.variant := "contained", ^.disabled := true)(
+      <.Button(^.variant := "contained", ^.disabled())(
         "Disabled"
       ),
       <.Button(^.variant := "contained", ^.color := "primary", ^.href := "#contained-buttons")(

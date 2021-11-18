@@ -51,7 +51,7 @@ object IconLabelButtons extends FunctionComponent[Unit] {
       ),
       <.Button(
         ^.variant := "contained",
-        ^.disabled := true,
+        ^.disabled(),
         ^.color := "secondary",
         ^.className := styleOf(classes.button),
         ^.startIcon := <(KeyboardVoiceIcon)()()

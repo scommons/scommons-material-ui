@@ -29,7 +29,7 @@ object UploadButtons extends FunctionComponent[Unit] {
         ^.accept := "image/*",
         ^.className := styleOf(classes.input),
         ^.id := "contained-button-file",
-        ^.multiple := true,
+        ^.multiple(),
         ^.`type` := "file"
       )(),
       <.label(^.htmlFor := "contained-button-file")(

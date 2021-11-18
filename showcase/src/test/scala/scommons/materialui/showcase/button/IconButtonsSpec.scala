@@ -23,7 +23,7 @@ class IconButtonsSpec extends TestSpec with MuiBaseTestSpec {
         <.IconButton(^("aria-label") := "delete")(
           <(DeleteIcon)()()
         ),
-        <.IconButton(^("aria-label") := "delete", ^.disabled := true, ^.color := "primary")(
+        <.IconButton(^("aria-label") := "delete", ^.disabled(), ^.color := "primary")(
           <(DeleteIcon)()()
         ),
         <.IconButton(^.color := "secondary", ^("aria-label") := "add an alarm")(

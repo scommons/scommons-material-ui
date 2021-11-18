@@ -66,7 +66,7 @@ class IconLabelButtonsSpec extends TestSpec with MuiBaseTestSpec {
       assertNativeComponent(b4,
         <.Button(
           ^.variant := "contained",
-          ^.disabled := true,
+          ^.disabled(),
           ^.color := "secondary",
           ^.className := styleOf(classes.button)
         )(

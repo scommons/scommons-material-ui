@@ -14,7 +14,7 @@ class DisableElevationSpec extends TestSpec with TestRendererUtils {
     
     //then
     assertNativeComponent(result,
-      <.Button(^.variant := "contained", ^.color := "primary", ^.disableElevation := true)(
+      <.Button(^.variant := "contained", ^.color := "primary", ^.disableElevation())(
         "Disable elevation"
       )
     )

@@ -24,7 +24,7 @@ object TextButtons extends FunctionComponent[Unit] {
       <.Button()("Default"),
       <.Button(^.color := "primary")("Primary"),
       <.Button(^.color := "secondary")("Secondary"),
-      <.Button(^.disabled := true)("Disabled"),
+      <.Button(^.disabled())("Disabled"),
       <.Button(^.href := "#text-buttons", ^.color := "primary")(
         "Link"
       )

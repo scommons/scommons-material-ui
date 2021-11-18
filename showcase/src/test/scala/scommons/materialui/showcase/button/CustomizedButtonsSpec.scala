@@ -42,7 +42,7 @@ class CustomizedButtonsSpec extends TestSpec with MuiBaseTestSpec {
             "Theme Provider"
           )
         ),
-        <(BootstrapButton)(^.variant := "contained", ^.color := "primary", ^.disableRipple := true, ^.className := styleOf(classes.margin))(
+        <(BootstrapButton)(^.variant := "contained", ^.color := "primary", ^.disableRipple(), ^.className := styleOf(classes.margin))(
           "Bootstrap"
         )
       )

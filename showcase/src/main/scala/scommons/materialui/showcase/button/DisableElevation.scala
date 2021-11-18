@@ -6,7 +6,7 @@ import scommons.react._
 object DisableElevation extends FunctionComponent[Unit] {
   
   protected def render(compProps: Props): ReactElement = {
-    <.Button(^.variant := "contained", ^.color := "primary", ^.disableElevation := true)(
+    <.Button(^.variant := "contained", ^.color := "primary", ^.disableElevation())(
       "Disable elevation"
     )
   }
