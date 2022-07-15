@@ -18,7 +18,7 @@ object MaterialUiTest extends ScalaJsModule {
 
       coverageExcludedPackages := "scommons.materialui.test.raw",
 
-      npmDevDependencies in Compile ++= Seq(
+      Compile / npmDevDependencies ++= Seq(
         "module-alias" -> "2.2.2"
       )
     )

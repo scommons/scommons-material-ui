@@ -6,7 +6,7 @@ lazy val `scommons-material-ui` = (project in file("."))
   .settings(CommonModule.settings: _*)
   .settings(MaterialUiModule.settings: _*)
   .settings(
-    skip in publish := true,
+    publish / skip := true,
     publish := ((): Unit),
     publishLocal := ((): Unit),
     publishM2 := ((): Unit)

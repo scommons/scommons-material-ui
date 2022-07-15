@@ -18,16 +18,12 @@ object MaterialUiCore extends ScalaJsModule {
 
       coverageExcludedPackages := "scommons.materialui.raw",
 
-      npmDependencies in Compile ++= Seq(
+      Compile / npmDependencies ++= Seq(
         "@material-ui/core" -> "^4.12.3",
         "@material-ui/icons" -> "^4.11.2"
       ),
 
-      npmDevDependencies in Compile ++= Seq(
-        "babel-loader" -> "8.0.5",
-        "@babel/core" -> "7.4.0",
-        "@babel/preset-env" -> "7.4.2",
-
+      Compile / npmDevDependencies ++= Seq(
         "webpack-node-externals" -> "2.5.2",
         "webpack-merge" -> "4.2.1"
       )

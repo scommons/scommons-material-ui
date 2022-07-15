@@ -28,7 +28,7 @@ object MaterialUiModule {
     //
     sonatypeProfileName := "org.scommons",
     publishMavenStyle := true,
-    publishArtifact in Test := false,
+    Test / publishArtifact := false,
     publishTo := sonatypePublishToBundle.value,
     pomExtra := {
       <url>https://github.com/scommons/scommons-material-ui</url>
