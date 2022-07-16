@@ -2,10 +2,11 @@ package definitions
 
 import sbt.Keys._
 import sbt._
-import scoverage.ScoverageKeys.coverageExcludedPackages
 import scalajsbundler.sbtplugin.ScalaJSBundlerPlugin.autoImport._
+import scommons.sbtplugin.project.CommonNodeJsModule
+import scoverage.ScoverageKeys.coverageExcludedPackages
 
-object MaterialUiCodeGen extends NodeJsModule {
+object MaterialUiCodeGen extends MaterialUiModule with CommonNodeJsModule {
 
   override val id = "scommons-material-ui-codegen"
 
@@ -13,7 +14,7 @@ object MaterialUiCodeGen extends NodeJsModule {
 
   override def definition: Project = super.definition
     .settings(
-      skip in publish := true,
+      publish / skip := true,
       publish := ((): Unit),
       publishLocal := ((): Unit),
       publishM2 := ((): Unit),
@@ -22,7 +23,7 @@ object MaterialUiCodeGen extends NodeJsModule {
         "scommons.doctrine.raw" +
           ";scommons.reactdocgen.raw",
 
-      npmDependencies in Compile ++= Seq(
+      Compile / npmDependencies ++= Seq(
         "doctrine" -> "^3.0.0",
         "react-docgen" -> "^5.4.0"
       )
