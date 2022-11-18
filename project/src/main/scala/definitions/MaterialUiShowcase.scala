@@ -20,7 +20,9 @@ object MaterialUiShowcase extends ScalaJsModule {
       publishLocal := ((): Unit),
       publishM2 := ((): Unit),
 
-      coverageExcludedPackages := "scommons.materialui.showcase.ShowcaseMain",
+      coverageExcludedPackages :=
+        "scommons.materialui.showcase.ShowcaseMain" +
+          ";scommons.materialui.showcase.button", // avoid "Found a dangling UndefinedParam" during test with coverage
 
       scalaJSUseMainModuleInitializer := true,
       webpackBundlingMode := BundlingMode.LibraryOnly(),
