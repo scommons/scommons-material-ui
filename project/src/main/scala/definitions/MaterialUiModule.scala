@@ -1,6 +1,7 @@
 package definitions
 
 import common.Libs
+import org.scoverage.coveralls.Imports.CoverallsKeys._
 import sbt.Keys._
 import sbt._
 import scommons.sbtplugin.project.CommonModule
@@ -23,6 +24,8 @@ object MaterialUiModule {
   val settings: Seq[Setting[_]] = Seq(
     organization := "org.scommons.material-ui",
     
+    coverallsService := GitHubActionsCI.jobId.map(_ => GitHubActionsCI),
+
     //
     // publish/release related settings:
     //

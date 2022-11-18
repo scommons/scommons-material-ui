@@ -31,7 +31,7 @@ object ReactDocgen {
     case TypeName.func => ReactDocgenType.Func
     case TypeName.union =>
       val types = pt.value.asInstanceOf[js.Array[raw.ReactDocgenNativeType]]
-        .toIterable.map(toReactDocgenType).toList
+        .toList.map(toReactDocgenType)
       ReactDocgenType.Union(types: _*)
     case t =>
       ReactDocgenType.Any

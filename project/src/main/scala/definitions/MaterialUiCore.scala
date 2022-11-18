@@ -16,7 +16,9 @@ object MaterialUiCore extends ScalaJsModule {
     .settings(
       description := "Scala.js facades for material-ui core components and APIs",
 
-      coverageExcludedPackages := "scommons.materialui.raw",
+      coverageExcludedPackages :=
+        "scommons.materialui.raw" +
+          ";scommons.materialui.styles", // avoid "Found a dangling UndefinedParam" during test with coverage
 
       Compile / npmDependencies ++= Seq(
         "@material-ui/core" -> "^4.12.3",
@@ -24,8 +26,8 @@ object MaterialUiCore extends ScalaJsModule {
       ),
 
       Compile / npmDevDependencies ++= Seq(
-        "webpack-node-externals" -> "2.5.2",
-        "webpack-merge" -> "4.2.1"
+        "webpack-node-externals" -> "3.0.0",
+        "webpack-merge" -> "5.8.0"
       )
     )
 
